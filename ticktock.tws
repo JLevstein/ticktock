@@ -243,7 +243,7 @@ Tiddler
 p85
 (dp86
 g21
-V<<set $respiratoryRate = $respiratoryRate - 0.4>>You should consider jogging more often.\u000a\u000a[[Go back|fakeStart]]\u000a\u000a<<heartBeat>>
+V<<set $respiratoryRate = $respiratoryRate - 0.4>>You should consider jogging more often.\u000a\u000a[[Go back|fakeStart]]\u000a\u000a<<heartBeat>>\u000a<<pauseSound $cicadas>>
 p87
 sg23
 V respiratoryrate
@@ -252,12 +252,12 @@ sg25
 g26
 ((I2015
 I6
+I4
+I18
+I38
+I4
 I3
-I17
-I9
-I46
-I2
-I154
+I155
 I0
 tp89
 (dp90
@@ -293,7 +293,7 @@ Tiddler
 p100
 (dp101
 g21
-VLet's work on making some abitrary choices to get this heart rate going!\u000a\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<increaseVolume>>
+VLet's work on making some abitrary choices to get this heart rate going!\u000a\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<increaseVolume $cicadas>>
 p102
 sg23
 VfakeStart
@@ -304,8 +304,8 @@ g26
 I6
 I4
 I18
-I19
-I58
+I36
+I45
 I3
 I155
 I0
@@ -541,15 +541,15 @@ g14
 I01
 sg15
 (lp177
-I177
-aI551
+I157
+aI560
 asg17
 (itiddlywiki
 Tiddler
 p178
 (dp179
 g21
-Vmacros["playSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.createElement('audio');\u000a\u000a    audioElement.setAttribute('id', 'audio');\u000a    audioElement.setAttribute('src', soundFile);\u000a    audioElement.volume = 0.5;\u000a\u000a    document.body.appendChild(audioElement);\u000a    document.getElementById('audio').play();\u000a  }\u000a}\u000a\u000amacros["increaseVolume"] = {\u000a  handler: function () {\u000a    var audioElement = document.getElementById('audio');\u000a\u000a    if(audioElement.volume < 0.99) {\u000a      audioElement.volume+=0.1;\u000a    } else {\u000a      return false;\u000a    }\u000a  }\u000a}
+Vmacros["playSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.createElement('audio');\u000a\u000a    audioElement.setAttribute('id', 'audio');\u000a    audioElement.setAttribute('src', soundFile);\u000a    audioElement.volume = 0.5;\u000a\u000a    document.body.appendChild(audioElement);\u000a    document.getElementById('audio').play();\u000a  }\u000a}\u000a\u000amacros["pauseSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a     audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    audioElement.pause();\u000a  }\u000a}\u000a\u000amacros["increaseVolume"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    if(audioElement.volume < 0.99) {\u000a      audioElement.volume+=0.1;\u000a    } else {\u000a      return false;\u000a    }\u000a  }\u000a}
 p180
 sg23
 VSound Macro
@@ -560,8 +560,8 @@ g26
 I6
 I4
 I18
-I26
-I23
+I41
+I0
 I3
 I155
 I0
