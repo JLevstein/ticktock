@@ -37,7 +37,7 @@ p18
 (dp20
 S'text'
 p21
-V<<silently>>\u000a<<set $heartRate = 1>>\u000a<<set $respiratoryRate = 3.5>>\u000a<<set $cicadas = "cicadas.wav">>\u000a<<endsilently>>Let's work on making some abitrary choices to get this heart rate going!\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<playSound $cicadas>>
+V<<silently>>\u000a<<set $heartRate = 1>>\u000a<<set $respiratoryRate = 3.5>>\u000a<<set $heartBeat = "heartbeat.wav">>\u000a<<endsilently>>Let's work on making some abitrary choices to get this heart rate going!\u000a\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<loopSound $heartBeat>>
 p22
 sS'title'
 p23
@@ -50,12 +50,12 @@ struct_time
 p26
 ((I2015
 I6
-I4
+I7
+I17
 I18
-I21
-I25
-I3
-I155
+I2
+I6
+I158
 I0
 tp27
 (dp28
@@ -193,7 +193,7 @@ Tiddler
 p70
 (dp71
 g21
-V<<set $heartRate = $heartRate - 0.1>>My, we're starting to get excited, aren't we?\u000a\u000a[[Go back|fakeStart]]\u000a\u000a<<heartBeat>>
+V<<set $heartRate = $heartRate - 0.1>><<set $respiratoryRate = $respiratoryRate - 0.4>>My, we're starting to get excited, aren't we? Well, maybe we should try out some more options and see what some serious text looks like.\u000a\u000aAll of the choices below go to the start.\u000a\u000a[[Dean|fakeStart]]\u000a[[Cry Baby|fakeStart]]\u000a[[JESSICAAAAAAAAAAAAAAAA|fakeStart]]\u000a\u000a<<heartBeat>>\u000a<<increasePlayback $heartBeat>>
 p72
 sg23
 V heartrate
@@ -202,12 +202,12 @@ sg25
 g26
 ((I2015
 I6
-I3
+I7
 I17
+I23
+I34
 I6
-I26
-I2
-I154
+I158
 I0
 tp74
 (dp75
@@ -243,7 +243,7 @@ Tiddler
 p85
 (dp86
 g21
-V<<set $respiratoryRate = $respiratoryRate - 0.4>>You should consider jogging more often.\u000a\u000a[[Go back|fakeStart]]\u000a\u000a<<heartBeat>>\u000a<<pauseSound $cicadas>>
+V<<set $heartRate = $heartRate - 0.1>><<set $respiratoryRate = $respiratoryRate - 0.4>>You should consider jogging more often. Like a cheetah. Cheetahs are great at jogging.\u000a\u000aThey can do it for long periods of time because they're predators. Like that alien. The ones that hunt people. Aliens. That's the one.s\u000a\u000a[[Dean|fakeStart]]\u000a[[Clean|fakeStart]]\u000a[[Fighting Machine|fakeStart]]\u000a\u000a<<heartBeat>>\u000a<<increasePlayback $heartBeat>>
 p87
 sg23
 V respiratoryrate
@@ -252,12 +252,12 @@ sg25
 g26
 ((I2015
 I6
-I4
-I18
-I38
-I4
-I3
-I155
+I7
+I17
+I23
+I53
+I6
+I158
 I0
 tp89
 (dp90
@@ -285,15 +285,15 @@ g14
 I00
 sg15
 (lp99
-F570.0
-aF22.0
+F601.0
+aF39.0
 asg17
 (itiddlywiki
 Tiddler
 p100
 (dp101
 g21
-VLet's work on making some abitrary choices to get this heart rate going!\u000a\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<increaseVolume $cicadas>>
+VLet's work on making some abitrary choices to get this heart rate going!\u000a\u000a[[Increase Heart rate | heartrate]]\u000a[[Increase Respiratory rate | respiratoryrate]]\u000a\u000a<<heartBeat>>\u000a<<increaseVolume $heartBeat>>
 p102
 sg23
 VfakeStart
@@ -302,12 +302,12 @@ sg25
 g26
 ((I2015
 I6
-I4
-I18
-I36
-I45
-I3
-I155
+I7
+I17
+I9
+I19
+I6
+I158
 I0
 tp104
 (dp105
@@ -332,7 +332,7 @@ tp111
 Rp112
 sbsa(dp113
 g14
-I00
+I01
 sg15
 (lp114
 I13
@@ -343,7 +343,7 @@ Tiddler
 p115
 (dp116
 g21
-V/* Your story will use the CSS in this passage to style the page.\u000aGive this passage more tags, and it will only affect passages with those tags.\u000aExample selectors: */\u000a\u000abody {\u000a	background: #000;\u000a	color: #fff;\u000a	font-family: Arial;\u000a}\u000a\u000a.body {\u000a	padding: 100px 0;\u000a}\u000a\u000a#sidebar {\u000a	display: none;\u000a}\u000a\u000a#passages {\u000a	margin-left: auto;\u000a	margin-right: auto;\u000a	max-width: 800px;\u000a}\u000a\u000a.crisis-area {\u000a	position: absolute;\u000a	z-index: -1;\u000a	top: 50%;\u000a	bottom: 0;\u000a	left: 50%;\u000a	margin-top: -100px;\u000a	margin-left: -100px;\u000a	width: 200px;\u000a	height: 200px;\u000a	-webkit-filter: blur(12px);\u000a	filter: blur(12px);\u000a}
+V/* Your story will use the CSS in this passage to style the page.\u000aGive this passage more tags, and it will only affect passages with those tags.\u000aExample selectors: */\u000a\u000abody {\u000a	background: #000;\u000a	color: #fff;\u000a	font-family: Arial;\u000a}\u000a\u000a.body {\u000a	padding-top: 50px;\u000a	text-align: center;\u000a}\u000a\u000a.passage a {\u000a	color: rgb(167, 23, 23);\u000a	padding: 10px 0;\u000a	display: inline-block;\u000a	text-shadow: 0 1px 1px #000;\u000a	text-transform: uppercase;\u000a}\u000a\u000a#sidebar {\u000a	display: none;\u000a}\u000a\u000a#passages {\u000a	margin-left: auto;\u000a	margin-right: auto;\u000a	max-width: 800px;\u000a}\u000a\u000a.crisis-area {\u000a	position: absolute;\u000a	z-index: -1;\u000a	top: 200px;\u000a	bottom: 0;\u000a	left: 50%;\u000a	margin-top: -100px;\u000a	margin-left: -100px;\u000a	width: 200px;\u000a	height: 200px;\u000a	-webkit-filter: blur(12px);\u000a	filter: blur(12px);\u000a}
 p117
 sg23
 VDefault Styles
@@ -352,12 +352,12 @@ sg25
 g26
 ((I2015
 I6
-I4
-I16
-I18
-I28
-I3
-I155
+I7
+I17
+I25
+I10
+I6
+I158
 I0
 tp119
 (dp120
@@ -538,7 +538,7 @@ tp174
 Rp175
 sbsa(dp176
 g14
-I01
+I00
 sg15
 (lp177
 I157
@@ -549,7 +549,7 @@ Tiddler
 p178
 (dp179
 g21
-Vmacros["playSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.createElement('audio');\u000a\u000a    audioElement.setAttribute('id', 'audio');\u000a    audioElement.setAttribute('src', soundFile);\u000a    audioElement.volume = 0.5;\u000a\u000a    document.body.appendChild(audioElement);\u000a    document.getElementById('audio').play();\u000a  }\u000a}\u000a\u000amacros["pauseSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a     audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    audioElement.pause();\u000a  }\u000a}\u000a\u000amacros["increaseVolume"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    if(audioElement.volume < 0.99) {\u000a      audioElement.volume+=0.1;\u000a    } else {\u000a      return false;\u000a    }\u000a  }\u000a}
+Vmacros["playSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.createElement('audio');\u000a\u000a    audioElement.setAttribute('id', 'audio');\u000a    audioElement.setAttribute('src', soundFile);\u000a    audioElement.volume = 0.5;\u000a\u000a    document.body.appendChild(audioElement);\u000a    document.getElementById('audio').play();\u000a  }\u000a}\u000a\u000amacros["loopSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a    \u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    if(document.querySelectorAll("audio[src='"+soundFile+"']")[0]) {\u000a      audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a    } else {\u000a      audioElement = document.createElement('audio');\u000a      audioElement.setAttribute('id', 'audio');\u000a      audioElement.setAttribute('src', soundFile);\u000a      audioElement.volume = 0.5;\u000a      document.body.appendChild(audioElement);\u000a    }\u000a\u000a    audioElement.play();\u000a    audioElement.setAttribute('loop', true);\u000a  }\u000a}\u000a\u000amacros["pauseSound"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    audioElement.pause();\u000a  }\u000a}\u000a\u000amacros["increaseVolume"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    if(audioElement.volume < 0.99) {\u000a      audioElement.volume += 0.1;\u000a    } else {\u000a      return false;\u000a    }\u000a  }\u000a}\u000a\u000amacros["decreaseVolume"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    if(audioElement.volume < 0.99) {\u000a      audioElement.volume -= 0.1;\u000a    } else {\u000a      return false;\u000a    }\u000a  }\u000a}\u000a\u000amacros["increasePlayback"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    audioElement.playbackRate += 0.2;\u000a  }\u000a}\u000a\u000amacros["decreasePlayback"] = {\u000a  handler: function (bodyElement, macroName, params, parser) {\u000a    var soundFile, audioElement;\u000a\u000a    soundFile = eval(parser.fullArgs()).toString();\u000a    audioElement = document.querySelectorAll("audio[src='"+soundFile+"']")[0];\u000a\u000a    audioElement.playbackRate -= 0.1;\u000a  }\u000a}
 p180
 sg23
 VSound Macro
@@ -558,12 +558,12 @@ sg25
 g26
 ((I2015
 I6
-I4
-I18
-I41
-I0
-I3
-I155
+I7
+I17
+I11
+I53
+I6
+I158
 I0
 tp182
 (dp183
